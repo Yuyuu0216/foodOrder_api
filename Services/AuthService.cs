@@ -19,4 +19,9 @@ public class AuthService : IAuthService
         }
         return "login failed";
     }
+
+    public string CreateUser(Users user)
+    {
+        return _authRepo.CreateUser(user).Result;
+    }
 }

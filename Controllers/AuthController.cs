@@ -14,9 +14,16 @@ public class AuthController : Controller
         _authRepo = authRepo;
         _authService = authService;
     }
-    [HttpPost]
+
+    [HttpPost("isLogin")]
     public ActionResult<string> Login(Users user)
     {
         return _authService.Login(user);
+    }
+
+    [HttpPost("Register")]
+    public ActionResult<string> CreateUser(Users user)
+    {
+        return _authService.CreateUser(user);
     }
 }

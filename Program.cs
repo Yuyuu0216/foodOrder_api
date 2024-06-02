@@ -10,8 +10,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddSingleton<IProductService, ProductService>();
 builder.Services.AddSingleton<IAuthService, AuthService>();
+builder.Services.AddSingleton<IOrderService, OrderService>();
 builder.Services.AddSingleton<IProductRepo, ProductRepo>();
 builder.Services.AddSingleton<IAuthRepo, AuthRepo>();
+builder.Services.AddSingleton<IOrderRepo, OrderRepo>();
 builder.Services.AddSingleton<IConnectionRepo, ConnectionRepo>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddDbContext<ProductContext>(options =>

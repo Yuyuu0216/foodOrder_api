@@ -1,10 +1,7 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Net;
 using Dapper;
 using foodOrder_api.Models;
-using foodOrder_api.Services;
 
 namespace foodOrder_api.Repositories;
 
