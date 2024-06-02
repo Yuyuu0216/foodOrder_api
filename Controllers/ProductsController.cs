@@ -6,11 +6,11 @@ namespace foodOrder_api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class ProdcutsController : Controller
+public class ProductsController : Controller
 {
     private readonly IProductRepo _productRepo;
     private readonly IProductService _productService;
-    public ProdcutsController(IProductRepo productRepo, IProductService productService) {
+    public ProductsController(IProductRepo productRepo, IProductService productService) {
         _productRepo = productRepo;
         _productService = productService;
     }
