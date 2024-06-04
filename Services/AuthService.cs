@@ -11,9 +11,17 @@ public class AuthService : IAuthService
         _authRepo = authRepo;
     }
 
+    public Users GetUserData(string account)
+    {
+        return _authRepo.Login(account).Result;
+    }
+
     public string Login(Users user)
     {
         var DBUser = _authRepo.Login(user.account).Result;
+        if(DBUser == null){
+            return "no user";
+        }
         if(DBUser.password == user.password){
             return "login succeed";
         }

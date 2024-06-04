@@ -14,6 +14,23 @@ public class OrderRepo :IOrderRepo
         _connection = connection.ConnectDb();
     }
 
+    public async Task<List<OrdersData>> GetOrderData(int Id) {
+        try {
+            var parameters = new DynamicParameters();
+            parameters.Add("@UserId", Id);
+            var orders =
+                await _connection.QueryAsync<OrdersData>("[dbo].[GetOrdersByUserId]",parameters,
+                    commandType: CommandType.StoredProcedure);
+                    Console.WriteLine(orders);
+            return orders.ToList();
+        }
+        catch (Exception e) {
+            System.Console.WriteLine("error:" + e);
+        }
+
+        return null!;
+    }
+
     public async Task<int> CreateOrder(int userId, int tableNum,List<OrderItem> orderItems)
     {
         var orderItemDataTable = new DataTable();

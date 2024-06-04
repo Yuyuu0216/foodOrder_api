@@ -15,6 +15,12 @@ public class AuthController : Controller
         _authService = authService;
     }
 
+    [HttpGet("userData")]
+    public ActionResult<Users> GetUserData(string account)
+    {
+        return _authService.GetUserData(account);
+    }
+
     [HttpPost("isLogin")]
     public ActionResult<string> Login(Users user)
     {

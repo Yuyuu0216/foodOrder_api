@@ -19,7 +19,7 @@ public class AuthRepo : IAuthRepo
             var userData =
                 await _connection.QueryFirstOrDefaultAsync<Users>("[dbo].[GetUserByAccount]",parameters,
                     commandType: CommandType.StoredProcedure);
-            return userData;
+            return userData!;
         }
         catch (Exception e) {
             System.Console.WriteLine("error:" + e);

@@ -12,7 +12,15 @@ public class OrderController : Controller
     private readonly IOrderService _orderService;
     public OrderController(IOrderRepo orderRepo, IOrderService orderService) {
         _orderService = orderService;
+        _orderRepo = orderRepo;
     }
+
+    [HttpGet("GetOrderData")]
+    public Task<List<OrdersData>> GetOrderData(int Id)
+    {
+        return _orderRepo.GetOrderData(Id);
+    }
+
     [HttpPost]
     public async Task<IActionResult> CreateOrder([FromBody] CreateOrderRequest request)
     {
